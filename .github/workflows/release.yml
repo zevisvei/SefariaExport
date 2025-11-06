@@ -178,6 +178,13 @@ jobs:
           echo "✅ Mongo restore complete and dump cleaned."
 
 
+      - name: Pre-clean big SDKs/caches (free disk)
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc || true
+          sudo rm -rf ~/.cache/pip || true
+          df -h
+
+
       - name: Run export function
         working-directory: Sefaria-Project
         env:

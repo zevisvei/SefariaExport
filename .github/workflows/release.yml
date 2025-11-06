@@ -1,10 +1,6 @@
-name: Python 3.9 + MongoDB + Sefaria Export
+name: Python 3.9 + MongoDB + Sefaria Export (Manual)
 
 on:
-  # Keep CI triggers if you still want them; remove if you want manual-only
-  push:
-    branches: [ main ]
-  pull_request:
   # Manual trigger from the Actions tab
   workflow_dispatch:
     inputs:
@@ -17,6 +13,7 @@ on:
         required: false
         default: "Asia/Jerusalem"
 
+# Needed to create a release
 permissions:
   contents: write
 
@@ -29,13 +26,17 @@ jobs:
         image: mongo:6.0
         ports:
           - 27017:27017
+        # Healthcheck runs inside the container; Actions will wait for 'healthy'
         options: >-
           --health-cmd="mongosh --eval 'db.runCommand({ ping: 1 })'"
           --health-interval=10s
           --health-timeout=5s
-          --health-retries=10
+          --health-retries=20
 
     env:
+      # Resolve inputs (fallbacks for manual run)
+      EXPORT_FUNCTION: ${{ inputs.export_function || 'export_all' }}
+      TZ_NAME: ${{ inputs.timezone || 'Asia/Jerusalem' }}
       # Django needs this to load the project settings
       DJANGO_SETTINGS_MODULE: sefaria.settings
       # Local export folder used by export.py via settings
@@ -44,12 +45,9 @@ jobs:
       MONGO_HOST: 127.0.0.1
       MONGO_PORT: 27017
       MONGO_DB_NAME: sefaria
-      # Resolve inputs (fallbacks for non-manual runs)
-      EXPORT_FUNCTION: ${{ github.event.inputs.export_function && github.event.inputs.export_function || 'export_all' }}
-      TZ_NAME: ${{ github.event.inputs.timezone && github.event.inputs.timezone || 'Asia/Jerusalem' }}
 
     steps:
-      - name: Checkout (your repository)
+      - name: Checkout (this repository)
         uses: actions/checkout@v4
 
       - name: Set up Python 3.9
@@ -64,10 +62,10 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
           restore-keys: ${{ runner.os }}-pip-
 
-      - name: Install system helpers (wget, tar, zip)
+      - name: Install system helpers (wget, tar, zip, nc)
         run: |
           sudo apt-get update
-          sudo apt-get install -y wget ca-certificates zip
+          sudo apt-get install -y wget ca-certificates zip netcat-openbsd
 
       - name: Install MongoDB Database Tools (mongorestore)
         run: |
@@ -93,24 +91,26 @@ jobs:
         run: |
           cp local_settings_example.py local_settings.py
           python - <<'PY'
-import os, re
-p = "local_settings.py"
-s = open(p, "r", encoding="utf-8").read()
-s = re.sub(r"SEFARIA_EXPORT_PATH\s*=.*", f'SEFARIA_EXPORT_PATH = r"{os.environ["SEFARIA_EXPORT_PATH"]}"', s)
-s = re.sub(r"MONGO_HOST\s*=.*", f'MONGO_HOST = "{os.environ["MONGO_HOST"]}"', s)
-s = re.sub(r"MONGO_PORT\s*=.*", f'MONGO_PORT = {int(os.environ["MONGO_PORT"])}', s)
-s = re.sub(r"MONGO_DB_NAME\s*=.*", f'MONGO_DB_NAME = "{os.environ["MONGO_DB_NAME"]}"', s)
-open(p, "w", encoding="utf-8").write(s)
-print("local_settings.py written with CI values")
-PY
+          import os, re
+          p = "local_settings.py"
+          with open(p, "r", encoding="utf-8") as f:
+              s = f.read()
+          s = re.sub(r"SEFARIA_EXPORT_PATH\s*=.*", f'SEFARIA_EXPORT_PATH = r"{os.environ["SEFARIA_EXPORT_PATH"]}"', s)
+          s = re.sub(r"MONGO_HOST\s*=.*", f'MONGO_HOST = "{os.environ["MONGO_HOST"]}"', s)
+          s = re.sub(r"MONGO_PORT\s*=.*", f'MONGO_PORT = {int(os.environ["MONGO_PORT"])}', s)
+          s = re.sub(r"MONGO_DB_NAME\s*=.*", f'MONGO_DB_NAME = "{os.environ["MONGO_DB_NAME"]}"', s)
+          with open(p, "w", encoding="utf-8") as f:
+              f.write(s)
+          print("local_settings.py written with CI values")
+          PY
 
-      - name: Wait for MongoDB readiness
+      - name: Wait for MongoDB TCP (extra safety)
         run: |
-          for i in {1..40}; do
-            if mongosh --host 127.0.0.1 --eval "db.runCommand({ ping: 1 })" &>/dev/null; then
-              echo "✅ MongoDB is ready"; break
+          for i in {1..60}; do
+            if nc -z 127.0.0.1 27017; then
+              echo "✅ MongoDB TCP port is reachable"; break
             fi
-            echo "⏳ Waiting for MongoDB..."; sleep 3
+            echo "⏳ Waiting for MongoDB TCP..."; sleep 2
           done
 
       - name: Fetch official dump (Sefaria-Export) and restore
@@ -126,28 +126,28 @@ PY
           mkdir -p "$SEFARIA_EXPORT_PATH"
           echo "Requested export function: $EXPORT_FUNCTION"
           python - <<'PY'
-import os, sys, django
-sys.path.insert(0, os.path.abspath("."))
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sefaria.settings")
-os.environ.setdefault("SEFARIA_EXPORT_PATH", os.environ.get("SEFARIA_EXPORT_PATH"))
-django.setup()
-from sefaria import export as ex
+          import os, sys, django
+          sys.path.insert(0, os.path.abspath("."))
+          os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sefaria.settings")
+          os.environ.setdefault("SEFARIA_EXPORT_PATH", os.environ.get("SEFARIA_EXPORT_PATH"))
+          django.setup()
+          from sefaria import export as ex
 
-fn = os.environ.get("EXPORT_FUNCTION","export_all").strip()
-allowed = {
-  "export_all": ex.export_all,
-  "export_texts": ex.export_texts,
-  "export_all_merged": ex.export_all_merged,
-  "export_links": ex.export_links,
-  "export_schemas": ex.export_schemas,
-  "export_toc": ex.export_toc,
-  "export_topic_graph": ex.export_topic_graph,
-}
-if fn not in allowed:
-    raise SystemExit(f"Unknown export function: {fn}")
-allowed[fn]()
-print(f"✅ {fn} completed.")
-PY
+          fn = os.environ.get("EXPORT_FUNCTION","export_all").strip()
+          allowed = {
+            "export_all": ex.export_all,
+            "export_texts": ex.export_texts,
+            "export_all_merged": ex.export_all_merged,
+            "export_links": ex.export_links,
+            "export_schemas": ex.export_schemas,
+            "export_toc": ex.export_toc,
+            "export_topic_graph": ex.export_topic_graph,
+          }
+          if fn not in allowed:
+              raise SystemExit(f"Unknown export function: {fn}")
+          allowed[fn]()
+          print(f"✅ {fn} completed.")
+          PY
           echo "Exported content path: $SEFARIA_EXPORT_PATH"
           ls -la "$SEFARIA_EXPORT_PATH" || true
 
@@ -180,6 +180,6 @@ PY
           tag_name: ${{ steps.ts.outputs.stamp }}
           name: ${{ steps.ts.outputs.stamp }}
           files: ${{ env.ZIP_PATH }}
-          body: "Automated Sefaria export (${ {env.EXPORT_FUNCTION} }) generated at ${ {env.TZ_NAME} } time: ${{ steps.ts.outputs.stamp }}"
+          body: "Automated Sefaria export (${{ env.EXPORT_FUNCTION }}) generated at ${{ env.TZ_NAME }} time: ${{ steps.ts.outputs.stamp }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

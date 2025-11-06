@@ -1,4 +1,4 @@
-name: Python 3.9 + MongoDB + Sefaria Export (Matrix, fast aria2c)
+name: Python 3.9 + MongoDB + Sefaria Export (Matrix + Merge, fast aria2c)
 
 on:
   workflow_dispatch:
@@ -11,7 +11,6 @@ on:
 permissions:
   contents: write
 
-# Ces env globaux ne référencent pas d'autres env (OK)
 env:
   TZ_NAME: ${{ inputs.timezone || 'Asia/Jerusalem' }}
   DJANGO_SETTINGS_MODULE: sefaria.settings
@@ -32,10 +31,47 @@ jobs:
           TZ="${TZ_NAME}" date '+%Y-%m-%d_%H-%M' > ts.txt
           echo "stamp=$(cat ts.txt)" >> $GITHUB_OUTPUT
 
+  fetch_dump:
+    name: Download & package Mongo dump (once)
+    runs-on: ubuntu-latest
+    needs: prep
+    steps:
+      - name: Install aria2 & tar
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y aria2 ca-certificates tar
+
+      - name: Download small Mongo dump (via aria2c)
+        run: |
+          mkdir -p mongo_dump
+          aria2c -x 16 -s 16 -k 1M -o dump_small.tar.gz "https://storage.googleapis.com/sefaria-mongo-backup/dump_small.tar.gz"
+          tar -xzf dump_small.tar.gz -C mongo_dump
+          echo "Dump tree:"
+          find mongo_dump -maxdepth 3 | sed -e 's/^/  /'
+
+      - name: Normalize layout to mongo_dump_pkg/sefaria
+        run: |
+          mkdir -p mongo_dump_pkg
+          if [ -d mongo_dump/dump/sefaria ]; then
+            cp -a mongo_dump/dump/sefaria mongo_dump_pkg/
+          elif [ -d mongo_dump/sefaria ]; then
+            cp -a mongo_dump/sefaria mongo_dump_pkg/
+          else
+            echo "❌ Could not find 'sefaria' folder in dump"; exit 1
+          fi
+          echo "Packaged tree:"
+          find mongo_dump_pkg -maxdepth 2 | sed -e 's/^/  /'
+
+      - name: Upload dump artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mongo-dump-sefaria
+          path: mongo_dump_pkg
+
   export:
     name: Run ${{ matrix.export_function }}
     runs-on: ubuntu-latest
-    needs: prep
+    needs: [prep, fetch_dump]
 
     strategy:
       fail-fast: false
@@ -53,7 +89,6 @@ jobs:
           --health-timeout=5s
           --health-retries=20
 
-    # Env propres à ce job, sans référence à d'autres env dans la même section
     env:
       EXPORT_FUNCTION: ${{ matrix.export_function }}
       TS_STAMP: ${{ needs.prep.outputs.stamp }}
@@ -82,10 +117,10 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
           restore-keys: ${{ runner.os }}-pip-
 
-      - name: Install system helpers (aria2, wget, zip, nc)
+      - name: Install system helpers (wget, zip, nc)
         run: |
           sudo apt-get update
-          sudo apt-get install -y aria2 wget ca-certificates zip netcat-openbsd
+          sudo apt-get install -y wget ca-certificates zip unzip netcat-openbsd
 
       - name: Install MongoDB Database Tools (mongorestore)
         run: |
@@ -159,19 +194,18 @@ jobs:
             echo "⏳ Waiting for MongoDB TCP..."; sleep 2
           done
 
-      - name: Download small Mongo dump (via aria2c)
-        run: |
-          mkdir -p mongo_dump
-          aria2c -x 16 -s 16 -k 1M -o dump_small.tar.gz "https://storage.googleapis.com/sefaria-mongo-backup/dump_small.tar.gz"
-          tar -xzf dump_small.tar.gz -C mongo_dump
-          echo "Dump tree:"
-          find mongo_dump -maxdepth 3 | sed -e 's/^/  /'
+      - name: Download dump artifact (once fetched)
+        uses: actions/download-artifact@v4
+        with:
+          name: mongo-dump-sefaria
+          path: mongo_dump_pkg
 
-      - name: Restore database from dump_small (detect correct dir) + create empty history
+      - name: Restore database from artifact dump + create empty history
         run: |
-          DUMP_DIR="$( if [ -d mongo_dump/dump/sefaria ]; then echo mongo_dump/dump; elif [ -d mongo_dump/sefaria ]; then echo mongo_dump; else echo mongo_dump; fi )"
-          echo "Using dump dir: $DUMP_DIR"
-          mongorestore --host 127.0.0.1 --port 27017 --drop --db sefaria "$DUMP_DIR/sefaria"
+          if [ ! -d mongo_dump_pkg/sefaria ]; then
+            echo "❌ mongo_dump_pkg/sefaria not found"; exit 1
+          fi
+          mongorestore --host 127.0.0.1 --port 27017 --drop --db sefaria "mongo_dump_pkg/sefaria"
           python - <<'PY'
           from pymongo import MongoClient, errors
           client = MongoClient("mongodb://127.0.0.1:27017")
@@ -183,9 +217,6 @@ jobs:
               print("'history' collection already exists.")
           PY
           echo "✅ Mongo restore complete."
-          echo "🧹 Cleaning up downloaded dump..."
-          rm -rf dump_small.tar.gz mongo_dump
-          echo "✅ Mongo restore complete and dump cleaned."
 
       - name: Pre-clean big SDKs/caches (free disk)
         run: |
@@ -233,29 +264,69 @@ jobs:
           echo "Disk usage after cleanup:"
           df -h
 
-      - name: Zip exports (split into ≤1.9GB parts)
-        id: zip
+      - name: Zip export (no split at this stage)
         run: |
           cd "$SEFARIA_EXPORT_BASE"
           ZIP_BASE="sefaria-${{ matrix.export_function }}-${TS_STAMP}"
-          zip -r -s 1900m "${ZIP_BASE}.zip" "${{ matrix.export_function }}"
+          zip -r "${ZIP_BASE}.zip" "${{ matrix.export_function }}"
           echo "ZIP_DIR=$(pwd)" >> $GITHUB_ENV
           echo "ZIP_BASE=${ZIP_BASE}" >> $GITHUB_ENV
-          ls -1 "$(pwd)/${ZIP_BASE}.zip" "$(pwd)/${ZIP_BASE}".z* 2>/dev/null | sort -V || true
-          echo "zip_name=${ZIP_BASE}.zip" >> $GITHUB_OUTPUT
+          ls -lh "$(pwd)/${ZIP_BASE}.zip" || true
 
-      - name: Upload split parts as artifact
+      - name: Upload zip as artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.export_function }}-${{ env.TS_STAMP }}
+          path: ${{ env.ZIP_DIR }}/${{ env.ZIP_BASE }}.zip
+
+  merge_and_split:
+    name: Merge all exports then split <2GB
+    runs-on: ubuntu-latest
+    needs: [prep, export]
+    env:
+      TS_STAMP: ${{ needs.prep.outputs.stamp }}
+    steps:
+      - name: Install unzip/zip
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y unzip zip
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: downloads
+
+      - name: Unzip all exports into one folder
+        run: |
+          mkdir -p merged/all
+          find downloads -type f -name '*.zip' -print0 | while IFS=read -r -d '' z; do
+            echo "🔽 Unzipping: $z"
+            unzip -q -o "$z" -d merged/all
+          done
+          echo "Merged tree (top level):"
+          find merged -maxdepth 2 -mindepth 1 -type d -print | sed -e 's/^/  /'
+
+      - name: Make final split zip (<2GB parts)
+        run: |
+          cd merged
+          FINAL_BASE="sefaria-ALL-${TS_STAMP}"
+          zip -r -s 1900m "${FINAL_BASE}.zip" "all"
+          echo "FINAL_DIR=$(pwd)" >> $GITHUB_ENV
+          echo "FINAL_BASE=${FINAL_BASE}" >> $GITHUB_ENV
+          ls -1 "${FINAL_BASE}.zip" "${FINAL_BASE}".z* 2>/dev/null | sort -V || true
+
+      - name: Upload final split zip as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ALL-${{ env.TS_STAMP }}
           path: |
-            ${{ env.ZIP_DIR }}/${{ env.ZIP_BASE }}.zip
-            ${{ env.ZIP_DIR }}/${{ env.ZIP_BASE }}.z*
+            ${{ env.FINAL_DIR }}/${{ env.FINAL_BASE }}.zip
+            ${{ env.FINAL_DIR }}/${{ env.FINAL_BASE }}.z*
 
   release:
     name: Create GitHub Release (attach all zips)
     runs-on: ubuntu-latest
-    needs: [prep, export]
+    needs: [prep, export, merge_and_split]
     steps:
       - name: Download all artifacts
         uses: actions/download-artifact@v4
@@ -283,11 +354,14 @@ jobs:
           body: |
             Automated Sefaria exports generated at ${{ env.TZ_NAME }} time: ${{ needs.prep.outputs.stamp }}.
 
-            Included exports (each as its own ZIP, possibly split):
+            Included exports (individual zips):
               - export_all_merged
               - export_links
               - export_schemas
               - export_toc
+
+            Also included:
+              - Combined archive (sefaria-ALL-*.zip + .z01, .z02, ...) with all exports merged
 
             To extract split archives:
               - Keep all parts (.zip and .z01, .z02, ...) in the same folder.

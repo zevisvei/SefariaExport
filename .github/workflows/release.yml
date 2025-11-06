@@ -11,13 +11,13 @@ on:
 permissions:
   contents: write
 
+# Ces env globaux ne référencent pas d'autres env (OK)
 env:
   TZ_NAME: ${{ inputs.timezone || 'Asia/Jerusalem' }}
   DJANGO_SETTINGS_MODULE: sefaria.settings
   MONGO_HOST: 127.0.0.1
   MONGO_PORT: 27017
   MONGO_DB_NAME: sefaria
-  SEFARIA_EXPORT_BASE: ${{ github.workspace }}/exports
 
 jobs:
   prep:
@@ -53,10 +53,12 @@ jobs:
           --health-timeout=5s
           --health-retries=20
 
+    # Env propres à ce job, sans référence à d'autres env dans la même section
     env:
       EXPORT_FUNCTION: ${{ matrix.export_function }}
-      SEFARIA_EXPORT_PATH: ${{ env.SEFARIA_EXPORT_BASE }}/${{ matrix.export_function }}
       TS_STAMP: ${{ needs.prep.outputs.stamp }}
+      SEFARIA_EXPORT_BASE: ${{ github.workspace }}/exports
+      SEFARIA_EXPORT_PATH: ${{ github.workspace }}/exports/${{ matrix.export_function }}
 
     steps:
       - name: Checkout (this repository)
@@ -98,7 +100,6 @@ jobs:
           git clone --depth 1 https://github.com/Sefaria/Sefaria-Project.git
           ls -la Sefaria-Project
 
-      # Handle google-re2 build gracefully
       - name: Install system build deps for google-re2
         run: |
           sudo apt-get update
@@ -267,7 +268,6 @@ jobs:
           cd downloads
           {
             echo 'files<<EOF'
-            # list all .zip and .z* parts
             find "$(pwd)" -type f \( -name '*.zip' -o -name '*.z*' \) | sort -V
             echo 'EOF'
           } >> "$GITHUB_OUTPUT"

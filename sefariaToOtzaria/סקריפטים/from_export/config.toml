@@ -1,0 +1,21 @@
+lang = "hebrew"
+[otzaria]
+export_books_path = "sefariaToOtzaria/sefaria_export/ספרים/אוצריא"
+export_links_path = "sefariaToOtzaria/sefaria_export/links"
+log_path = "sefariaToOtzaria/sefaria_export/log"
+refs_all_file_path = "sefariaToOtzaria/sefaria_export/refs_all..csv"
+books_metadata_file_path = "sefariaToOtzaria/סקריפטים/books_metadata.json"
+folder_metadata_file_path = "sefariaToOtzaria/סקריפטים/folder_metadata.json"
+folder_name_replacements_file_path = "sefariaToOtzaria/סקריפטים/from_export/תיקיות.csv"
+file_name_replacements_file_path = "sefariaToOtzaria/סקריפטים/from_export/ספרים.csv"
+old_books_path = "sefariaToOtzaria/sefaria_export/ספרים/אוצריא"
+api_books_path = "sefariaToOtzaria/sefaria_api/ספרים/אוצריא"
+delete_api_files = false
+
+[sefaria]
+toc_file = "sefariaToOtzaria/new_export/table_of_contents.json"
+json_folder = "sefariaToOtzaria/new_export/json"
+schemas_folder = "sefariaToOtzaria/new_export/schemas"
+links_folder = "sefariaToOtzaria/new_export/links"
+files_black_list_file_path = "sefariaToOtzaria/סקריפטים/ספרים.TXT"
+authors_black_files_list_file_path = "sefariaToOtzaria/סקריפטים/מחברים.TXT"

@@ -38,10 +38,21 @@ jobs:
           --health-retries=20
 
     steps:
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: false
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: true
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           clean: true
 
       - name: Debug workspace
@@ -95,6 +106,7 @@ jobs:
           mkdir -p mongo_dump
           aria2c -x 16 -s 16 -k 1M -o dump_small.tar.gz "https://storage.googleapis.com/sefaria-mongo-backup/dump_small.tar.gz"
           tar -xzf dump_small.tar.gz -C mongo_dump
+          rm dump_small.tar.gz
           mkdir -p mongo_dump_pkg
           if [ -d mongo_dump/dump/sefaria ]; then
             cp -a mongo_dump/dump/sefaria mongo_dump_pkg/
@@ -103,14 +115,17 @@ jobs:
           else
             echo "❌ 'sefaria' folder not found in dump"; exit 1
           fi
+          rm -rf mongo_dump
           find mongo_dump_pkg -maxdepth 2 -type d -print
 
       # 05_clone_sefaria_project.sh
       - name: Clone Sefaria-Project
         run: |
           set -euo pipefail
-          git clone --depth 1 https://github.com/Sefaria/Sefaria-Project.git
-          ls -la Sefaria-Project | head -n 50
+          git clone --depth 1 --single-branch --no-tags https://github.com/Sefaria/Sefaria-Project.git
+          cd Sefaria-Project
+          rm -rf .git
+          ls -la | head -n 50
 
       # 06_install_build_deps.sh
       - name: Install build deps (google-re2)
@@ -274,6 +289,9 @@ jobs:
           
           # Ensure 'history' collection exists (some exports expect it)
           python ./ensure_history_collection.py
+          
+          # Clean up dump files to free space
+          rm -rf mongo_dump_pkg
           
           echo "✅ Mongo restore complete."
 

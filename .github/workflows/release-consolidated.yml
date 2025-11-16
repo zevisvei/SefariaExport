@@ -392,11 +392,11 @@ jobs:
           else
             echo "⚠️  No books directory found at new_books/אוצריא"
           fi
-          
-          # Move links from סקריפטים/from_export/links to sefaria_export/links
-          if [ -d "${SEFARIA_TO_OTZARIA_PATH}/סקריפטים/from_export/links" ]; then
+
+          # Move links from new_books/links to sefaria_export/links
+          if [ -d "${SEFARIA_TO_OTZARIA_PATH}/new_books/links" ]; then
             echo "🔗 Moving links..."
-            mv "${SEFARIA_TO_OTZARIA_PATH}/סקריפטים/from_export/links"/* \
+            mv "${SEFARIA_TO_OTZARIA_PATH}/new_books/links"/* \
                "${SEFARIA_TO_OTZARIA_PATH}/sefaria_export/links/" 2>/dev/null || true
             echo "✅ Links moved."
           else

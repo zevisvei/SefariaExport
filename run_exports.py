@@ -30,7 +30,8 @@ def main() -> int:
 
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sefaria.settings")
 
-    export_base = os.path.join(workspace, 'exports')
+    # Use SEFARIA_EXPORT_BASE from environment if set (for CI), otherwise default to exports
+    export_base = os.environ.get('SEFARIA_EXPORT_BASE', os.path.join(workspace, 'exports'))
     os.environ["SEFARIA_EXPORT_PATH"] = export_base
 
     print(f"📁 Export base directory: {export_base}")
@@ -52,9 +53,9 @@ def main() -> int:
     ]
 
     for fn_name, fn_callable in functions_to_run:
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print(f"▶️  Running {fn_name}...")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
         try:
             fn_callable()
             print(f"✅ {fn_name} completed")

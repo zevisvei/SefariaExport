@@ -309,7 +309,7 @@ jobs:
         run: |
           set -euo pipefail
           export PYTHONPATH="${GITHUB_WORKSPACE:-$PWD}/Sefaria-Project"
-          python ./run_exports.py
+          python sefariaToOtzaria/סקריפטים/from_export/run_exports.py
 
       # 15_verify_exports.sh
       - name: Detailed export verification
@@ -363,6 +363,8 @@ jobs:
         run: |
           pip install -r requirements.txt
           python export.py
+          rm -rf "${SEFARIA_TO_OTZARIA_PATH}/new_export/json"
+          rm -rf "${SEFARIA_TO_OTZARIA_PATH}/new_export/schemas"
           python links.py
           python folder_metadata.py
 

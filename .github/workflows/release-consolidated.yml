@@ -345,6 +345,35 @@ jobs:
           mongosh --quiet --eval 'db.getSiblingDB("sefaria").dropDatabase(); print("✅ DB dropped.")' || true
           df -h
 
+      # 17a_remove_english_in_exports.sh
+      - name: Cleanup exports — remove 'English' directories
+        run: |
+          set -euo pipefail
+          
+          EXPORTS_DIR="${SEFARIA_TO_OTZARIA_PATH}/new_export"
+          
+          if [ ! -d "${EXPORTS_DIR}" ]; then
+            echo "❌ exports directory not found at: ${EXPORTS_DIR}" >&2
+            exit 1
+          fi
+          
+          cd "${EXPORTS_DIR}"
+          
+          echo "🧹 Removing directories named 'English' under $(pwd) ..."
+          
+          MATCHES=$(find . -depth -type d -name "English" -print)
+          COUNT=$(printf "%s\n" "$MATCHES" | sed '/^$/d' | wc -l | tr -d ' ')
+          if [ "$COUNT" -eq 0 ]; then
+            echo "ℹ️  No 'English' directories found."
+          else
+            printf "%s\n" "$MATCHES" | sed '/^$/d' | while IFS= read -r d; do
+              echo " - Deleting: $d"
+              rm -rf -- "$d"
+            done
+            echo "✅ Deleted $COUNT directory(ies) named 'English'."
+          fi
+
+
       # Run sefariaToOtzaria conversion scripts with Python 3.12
       - name: Set up Python 3.12 for conversion scripts
         uses: actions/setup-python@v5
@@ -352,8 +381,9 @@ jobs:
           python-version: '3.12'
           
       - name: Run Sefaria to Otzaria conversion scripts
-        working-directory: "sefariaToOtzaria/סקריפטים/from_export"
         run: |
+          set -euo pipefail
+          cd "${SEFARIA_TO_OTZARIA_PATH}/סקריפטים/from_export"
           pip install -r requirements.txt
           python export.py
           python links.py

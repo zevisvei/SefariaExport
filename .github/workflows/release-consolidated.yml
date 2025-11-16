@@ -373,6 +373,82 @@ jobs:
             echo "✅ Deleted $COUNT directory(ies) named 'English'."
           fi
 
+      # Commit and push exports after cleanup (in chunks to handle large data)
+      - name: Commit and push exports to repository
+        run: |
+          set -euo pipefail
+          
+          cd "${GITHUB_WORKSPACE}"
+          
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Configure git for large pushes
+          git config http.postBuffer 524288000
+          git config pack.windowMemory "100m"
+          git config pack.packSizeLimit "100m"
+          git config pack.threads "1"
+          
+          EXPORT_DIR="${SEFARIA_TO_OTZARIA_PATH}/new_export"
+          
+          if [ ! -d "${EXPORT_DIR}" ]; then
+            echo "⚠️  No export directory found, skipping commit"
+            exit 0
+          fi
+          
+          echo "📦 Preparing to commit exports in chunks..."
+          
+          # Find all subdirectories in new_export
+          SUBDIRS=$(find "${EXPORT_DIR}" -mindepth 1 -maxdepth 1 -type d)
+          
+          if [ -z "$SUBDIRS" ]; then
+            echo "⚠️  No subdirectories found in exports"
+            exit 0
+          fi
+          
+          COMMIT_COUNT=0
+          
+          # Commit each subdirectory separately to avoid size limits
+          for subdir in $SUBDIRS; do
+            SUBDIR_NAME=$(basename "$subdir")
+            echo "📝 Processing: ${SUBDIR_NAME}"
+            
+            git add "${EXPORT_DIR}/${SUBDIR_NAME}/"
+            
+            if ! git diff --staged --quiet; then
+              echo "✅ Committing ${SUBDIR_NAME}..."
+              git commit -m "Add Sefaria export: ${SUBDIR_NAME} - $(date '+%Y-%m-%d %H:%M')"
+              
+              echo "⬆️  Pushing ${SUBDIR_NAME}..."
+              git push || {
+                echo "⚠️  Push failed for ${SUBDIR_NAME}, retrying..."
+                sleep 5
+                git push
+              }
+              
+              COMMIT_COUNT=$((COMMIT_COUNT + 1))
+              echo "✅ Pushed ${SUBDIR_NAME} successfully (${COMMIT_COUNT} commits so far)"
+              
+              # Small delay between pushes
+              sleep 2
+            else
+              echo "ℹ️  No changes in ${SUBDIR_NAME}"
+            fi
+          done
+          
+          # Commit any remaining files (schemas, toc, links, etc.)
+          git add "${EXPORT_DIR}/"
+          if ! git diff --staged --quiet; then
+            echo "📝 Committing remaining export files..."
+            git commit -m "Add remaining Sefaria export files - $(date '+%Y-%m-%d %H:%M')"
+            
+            echo "⬆️  Pushing remaining files..."
+            git push
+            
+            echo "✅ All exports pushed successfully (total: $((COMMIT_COUNT + 1)) commits)"
+          else
+            echo "✅ All exports pushed successfully (total: ${COMMIT_COUNT} commits)"
+          fi
 
       # Run sefariaToOtzaria conversion scripts with Python 3.12
       - name: Set up Python 3.12 for conversion scripts

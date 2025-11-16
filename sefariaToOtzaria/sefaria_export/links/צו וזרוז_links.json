@@ -1,0 +1,310 @@
+[
+  {
+    "line_index_1": 21,
+    "line_index_2": 357,
+    "heRef_2": "משלי יב, כה",
+    "path_2": "משלי.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 51,
+    "line_index_2": 252,
+    "heRef_2": "משלי ט, ד",
+    "path_2": "משלי.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 19,
+    "line_index_2": 2012,
+    "heRef_2": "תהילים קט, כב",
+    "path_2": "תהילים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 151,
+    "line_index_2": 2617,
+    "heRef_2": "תהילים קמו, ב",
+    "path_2": "תהילים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 148,
+    "line_index_2": 2617,
+    "heRef_2": "תהילים קמו, ב",
+    "path_2": "תהילים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 162,
+    "line_index_2": 2617,
+    "heRef_2": "תהילים קמו, ב",
+    "path_2": "תהילים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 158,
+    "line_index_2": 2617,
+    "heRef_2": "תהילים קמו, ב",
+    "path_2": "תהילים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 122,
+    "line_index_2": 262,
+    "heRef_2": "תהילים יט, ד",
+    "path_2": "תהילים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 50,
+    "line_index_2": 337,
+    "heRef_2": "תהילים כג, ד",
+    "path_2": "תהילים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 99,
+    "line_index_2": 337,
+    "heRef_2": "תהילים כג, ד",
+    "path_2": "תהילים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 101,
+    "line_index_2": 337,
+    "heRef_2": "תהילים כג, ד",
+    "path_2": "תהילים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 27,
+    "line_index_2": 837,
+    "heRef_2": "תהילים נא, ה",
+    "path_2": "תהילים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 123,
+    "line_index_2": 1593,
+    "heRef_2": "תהילים צ, ב",
+    "path_2": "תהילים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 183,
+    "line_index_2": 1335,
+    "heRef_2": "ישעיהו סו, א",
+    "path_2": "ישעיהו.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 152,
+    "line_index_2": 125,
+    "heRef_2": "ישעיהו ו, ג",
+    "path_2": "ישעיהו.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 143,
+    "line_index_2": 644,
+    "heRef_2": "ירמיהו כה, ל",
+    "path_2": "ירמיהו.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 203,
+    "line_index_2": 791,
+    "heRef_2": "ירמיהו לא, יד",
+    "path_2": "ירמיהו.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 177,
+    "line_index_2": 167,
+    "heRef_2": "דברי הימים ב ח, ו",
+    "path_2": "דברי הימים ב.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 116,
+    "line_index_2": 11,
+    "heRef_2": "שמואל ב א, ט",
+    "path_2": "שמואל ב.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 176,
+    "line_index_2": 652,
+    "heRef_2": "איוב כז, יב",
+    "path_2": "איוב.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 153,
+    "line_index_2": 275,
+    "heRef_2": "בראשית רבה כז, א",
+    "path_2": "בראשית רבה.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 216,
+    "line_index_2": 56,
+    "heRef_2": "איכה ג, ח",
+    "path_2": "איכה.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 83,
+    "line_index_2": 308,
+    "heRef_2": "ויקרא יא, מד",
+    "path_2": "ויקרא.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 96,
+    "line_index_2": 696,
+    "heRef_2": "דברים כה, יח",
+    "path_2": "דברים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 200,
+    "line_index_2": 21,
+    "heRef_2": "שיר השירים ב, א",
+    "path_2": "שיר השירים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 21,
+    "line_index_2": 73,
+    "heRef_2": "שיר השירים ה, ו",
+    "path_2": "שיר השירים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 86,
+    "line_index_2": 27,
+    "heRef_2": "משנה אבות ב, ו",
+    "path_2": "משנה אבות.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 143,
+    "line_index_2": 1689,
+    "heRef_2": "בבא בתרא עג.,  א",
+    "path_2": "בבא בתרא.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 7,
+    "line_index_2": 618,
+    "heRef_2": "בראשית כד, א",
+    "path_2": "בראשית.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 5,
+    "heRef_2": "הערות",
+    "path_2": "הערות על צו וזרוז.txt",
+    "line_index_2": 1,
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 35,
+    "heRef_2": "הערות",
+    "path_2": "הערות על צו וזרוז.txt",
+    "line_index_2": 2,
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 95,
+    "heRef_2": "הערות",
+    "path_2": "הערות על צו וזרוז.txt",
+    "line_index_2": 3,
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 139,
+    "heRef_2": "הערות",
+    "path_2": "הערות על צו וזרוז.txt",
+    "line_index_2": 4,
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 150,
+    "heRef_2": "הערות",
+    "path_2": "הערות על צו וזרוז.txt",
+    "line_index_2": 5,
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 152,
+    "heRef_2": "הערות",
+    "path_2": "הערות על צו וזרוז.txt",
+    "line_index_2": 6,
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 153,
+    "heRef_2": "הערות",
+    "path_2": "הערות על צו וזרוז.txt",
+    "line_index_2": 7,
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 153,
+    "heRef_2": "הערות",
+    "path_2": "הערות על צו וזרוז.txt",
+    "line_index_2": 8,
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 153,
+    "heRef_2": "הערות",
+    "path_2": "הערות על צו וזרוז.txt",
+    "line_index_2": 9,
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 153,
+    "heRef_2": "הערות",
+    "path_2": "הערות על צו וזרוז.txt",
+    "line_index_2": 10,
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 154,
+    "heRef_2": "הערות",
+    "path_2": "הערות על צו וזרוז.txt",
+    "line_index_2": 11,
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 154,
+    "heRef_2": "הערות",
+    "path_2": "הערות על צו וזרוז.txt",
+    "line_index_2": 12,
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 176,
+    "heRef_2": "הערות",
+    "path_2": "הערות על צו וזרוז.txt",
+    "line_index_2": 13,
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 177,
+    "heRef_2": "הערות",
+    "path_2": "הערות על צו וזרוז.txt",
+    "line_index_2": 14,
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 183,
+    "heRef_2": "הערות",
+    "path_2": "הערות על צו וזרוז.txt",
+    "line_index_2": 15,
+    "Conection Type": "commentary"
+  }
+]

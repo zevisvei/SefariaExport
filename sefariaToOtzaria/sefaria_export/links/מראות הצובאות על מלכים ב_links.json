@@ -1,0 +1,499 @@
+[
+  {
+    "line_index_1": 102,
+    "line_index_2": 325,
+    "heRef_2": "מלכים ב יא, יז",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 105,
+    "line_index_2": 334,
+    "heRef_2": "מלכים ב יב, ה",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 108,
+    "line_index_2": 366,
+    "heRef_2": "מלכים ב יג, יד",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 109,
+    "line_index_2": 366,
+    "heRef_2": "מלכים ב יג, יד",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 111,
+    "line_index_2": 372,
+    "heRef_2": "מלכים ב יג, כ",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 116,
+    "line_index_2": 404,
+    "heRef_2": "מלכים ב יד, כו",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 114,
+    "line_index_2": 386,
+    "heRef_2": "מלכים ב יד, ח",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 119,
+    "line_index_2": 448,
+    "heRef_2": "מלכים ב טז, א",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 122,
+    "line_index_2": 469,
+    "heRef_2": "מלכים ב יז, א",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 124,
+    "line_index_2": 492,
+    "heRef_2": "מלכים ב יז, כד",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 125,
+    "line_index_2": 492,
+    "heRef_2": "מלכים ב יז, כד",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 127,
+    "line_index_2": 508,
+    "heRef_2": "מלכים ב יז, מ",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 130,
+    "line_index_2": 523,
+    "heRef_2": "מלכים ב יח, יג",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 4,
+    "line_index_2": 11,
+    "heRef_2": "מלכים ב א, ט",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 133,
+    "line_index_2": 618,
+    "heRef_2": "מלכים ב כא, י",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 135,
+    "line_index_2": 622,
+    "heRef_2": "מלכים ב כא, יד",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 140,
+    "line_index_2": 646,
+    "heRef_2": "מלכים ב כב, יא",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 138,
+    "line_index_2": 643,
+    "heRef_2": "מלכים ב כב, ח",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 7,
+    "line_index_2": 22,
+    "heRef_2": "מלכים ב ב, א",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 8,
+    "line_index_2": 22,
+    "heRef_2": "מלכים ב ב, א",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 9,
+    "line_index_2": 22,
+    "heRef_2": "מלכים ב ב, א",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 25,
+    "line_index_2": 31,
+    "heRef_2": "מלכים ב ב, י",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 26,
+    "line_index_2": 31,
+    "heRef_2": "מלכים ב ב, י",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 28,
+    "line_index_2": 32,
+    "heRef_2": "מלכים ב ב, יא",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 29,
+    "line_index_2": 32,
+    "heRef_2": "מלכים ב ב, יא",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 30,
+    "line_index_2": 32,
+    "heRef_2": "מלכים ב ב, יא",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 31,
+    "line_index_2": 32,
+    "heRef_2": "מלכים ב ב, יא",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 32,
+    "line_index_2": 32,
+    "heRef_2": "מלכים ב ב, יא",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 33,
+    "line_index_2": 32,
+    "heRef_2": "מלכים ב ב, יא",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 35,
+    "line_index_2": 40,
+    "heRef_2": "מלכים ב ב, יט",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 11,
+    "line_index_2": 23,
+    "heRef_2": "מלכים ב ב, ב",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 12,
+    "line_index_2": 23,
+    "heRef_2": "מלכים ב ב, ב",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 37,
+    "line_index_2": 44,
+    "heRef_2": "מלכים ב ב, כג",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 14,
+    "line_index_2": 24,
+    "heRef_2": "מלכים ב ב, ג",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 15,
+    "line_index_2": 24,
+    "heRef_2": "מלכים ב ב, ג",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 16,
+    "line_index_2": 24,
+    "heRef_2": "מלכים ב ב, ג",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 18,
+    "line_index_2": 25,
+    "heRef_2": "מלכים ב ב, ד",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 20,
+    "line_index_2": 26,
+    "heRef_2": "מלכים ב ב, ה",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 21,
+    "line_index_2": 26,
+    "heRef_2": "מלכים ב ב, ה",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 23,
+    "line_index_2": 30,
+    "heRef_2": "מלכים ב ב, ט",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 40,
+    "line_index_2": 59,
+    "heRef_2": "מלכים ב ג, יב",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 41,
+    "line_index_2": 59,
+    "heRef_2": "מלכים ב ג, יב",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 44,
+    "line_index_2": 76,
+    "heRef_2": "מלכים ב ד, א",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 52,
+    "line_index_2": 85,
+    "heRef_2": "מלכים ב ד, י",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 53,
+    "line_index_2": 85,
+    "heRef_2": "מלכים ב ד, י",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 55,
+    "line_index_2": 90,
+    "heRef_2": "מלכים ב ד, טו",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 57,
+    "line_index_2": 91,
+    "heRef_2": "מלכים ב ד, טז",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 58,
+    "line_index_2": 91,
+    "heRef_2": "מלכים ב ד, טז",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 60,
+    "line_index_2": 92,
+    "heRef_2": "מלכים ב ד, יז",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 61,
+    "line_index_2": 92,
+    "heRef_2": "מלכים ב ד, יז",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 63,
+    "line_index_2": 94,
+    "heRef_2": "מלכים ב ד, יט",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 65,
+    "line_index_2": 103,
+    "heRef_2": "מלכים ב ד, כח",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 67,
+    "line_index_2": 116,
+    "heRef_2": "מלכים ב ד, מא",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 69,
+    "line_index_2": 117,
+    "heRef_2": "מלכים ב ד, מב",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 46,
+    "line_index_2": 83,
+    "heRef_2": "מלכים ב ד, ח",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 47,
+    "line_index_2": 83,
+    "heRef_2": "מלכים ב ד, ח",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 48,
+    "line_index_2": 83,
+    "heRef_2": "מלכים ב ד, ח",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 50,
+    "line_index_2": 84,
+    "heRef_2": "מלכים ב ד, ט",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 72,
+    "line_index_2": 121,
+    "heRef_2": "מלכים ב ה, א",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 76,
+    "line_index_2": 133,
+    "heRef_2": "מלכים ב ה, יג",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 78,
+    "line_index_2": 135,
+    "heRef_2": "מלכים ב ה, טו",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 80,
+    "line_index_2": 140,
+    "heRef_2": "מלכים ב ה, כ",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 74,
+    "line_index_2": 129,
+    "heRef_2": "מלכים ב ה, ט",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 85,
+    "line_index_2": 178,
+    "heRef_2": "מלכים ב ו, ל",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 87,
+    "line_index_2": 179,
+    "heRef_2": "מלכים ב ו, לא",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 83,
+    "line_index_2": 156,
+    "heRef_2": "מלכים ב ו, ח",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 94,
+    "line_index_2": 195,
+    "heRef_2": "מלכים ב ז, יג",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 96,
+    "line_index_2": 199,
+    "heRef_2": "מלכים ב ז, יז",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 90,
+    "line_index_2": 185,
+    "heRef_2": "מלכים ב ז, ג",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 92,
+    "line_index_2": 191,
+    "heRef_2": "מלכים ב ז, ט",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  },
+  {
+    "line_index_1": 99,
+    "line_index_2": 234,
+    "heRef_2": "מלכים ב ט, א",
+    "path_2": "מלכים ב.txt",
+    "Conection Type": "commentary"
+  }
+]

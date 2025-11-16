@@ -1,0 +1,394 @@
+[
+  {
+    "line_index_1": 33,
+    "line_index_2": 18,
+    "heRef_2": "מלאכי ב,  א",
+    "path_2": "מלאכי.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 47,
+    "line_index_2": 301,
+    "heRef_2": "תהילים כב,  א",
+    "path_2": "תהילים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 47,
+    "line_index_2": 319,
+    "heRef_2": "תהילים כב, יט",
+    "path_2": "תהילים.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 49,
+    "line_index_2": 1143,
+    "heRef_2": "ישעיהו נה,  א",
+    "path_2": "ישעיהו.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 49,
+    "line_index_2": 1150,
+    "heRef_2": "ישעיהו נה, ח",
+    "path_2": "ישעיהו.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 34,
+    "line_index_2": 3,
+    "heRef_2": "מלאכי א,  א",
+    "path_2": "מלאכי.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 34,
+    "line_index_2": 3,
+    "heRef_2": "מלאכי א, א",
+    "path_2": "מלאכי.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 35,
+    "line_index_2": 2564,
+    "heRef_2": "קידושין פב:,  א",
+    "path_2": "קידושין.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 36,
+    "line_index_2": 1079,
+    "heRef_2": "תהילים סח,  א",
+    "path_2": "תהילים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 36,
+    "line_index_2": 1100,
+    "heRef_2": "תהילים סח, כב",
+    "path_2": "תהילים.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 37,
+    "line_index_2": 917,
+    "heRef_2": "משלי לא,  א",
+    "path_2": "משלי.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 37,
+    "line_index_2": 931,
+    "heRef_2": "משלי לא, טו",
+    "path_2": "משלי.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 40,
+    "line_index_2": 36,
+    "heRef_2": "מלאכי ג,  א",
+    "path_2": "מלאכי.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 41,
+    "line_index_2": 2627,
+    "heRef_2": "תהילים קמז,  א",
+    "path_2": "תהילים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 41,
+    "line_index_2": 2800,
+    "heRef_2": "שבת קיט:,  א",
+    "path_2": "שבת.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 17,
+    "line_index_2": 2248,
+    "heRef_2": "תהילים קיט, קה",
+    "path_2": "תהילים.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 17,
+    "line_index_2": 602,
+    "heRef_2": "משלי כ, כז",
+    "path_2": "משלי.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 26,
+    "line_index_2": 3,
+    "heRef_2": "ויקרא א, א",
+    "path_2": "ויקרא.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 31,
+    "line_index_2": 1837,
+    "heRef_2": "תהילים קה, א",
+    "path_2": "תהילים.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 67,
+    "line_index_2": 1170,
+    "heRef_2": "ישעיהו נז,  א",
+    "path_2": "ישעיהו.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 69,
+    "line_index_2": 746,
+    "heRef_2": "במדבר כ, יח",
+    "path_2": "במדבר.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 59,
+    "line_index_2": 707,
+    "heRef_2": "במדבר יט, ב",
+    "path_2": "במדבר.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 60,
+    "line_index_2": 1145,
+    "heRef_2": "במדבר לא, נג",
+    "path_2": "במדבר.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 61,
+    "line_index_2": 1485,
+    "heRef_2": "תהילים פה, ט",
+    "path_2": "תהילים.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 62,
+    "line_index_2": 2042,
+    "heRef_2": "תהילים קיב, א",
+    "path_2": "תהילים.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 63,
+    "line_index_2": 808,
+    "heRef_2": "ישעיהו מ,  א",
+    "path_2": "ישעיהו.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 63,
+    "line_index_2": 838,
+    "heRef_2": "ישעיהו מ, לא",
+    "path_2": "ישעיהו.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 38,
+    "line_index_2": 189,
+    "heRef_2": "ברכות ו.,  א",
+    "path_2": "ברכות.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 46,
+    "line_index_2": 326,
+    "heRef_2": "דברים יא,  א",
+    "path_2": "דברים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 46,
+    "line_index_2": 351,
+    "heRef_2": "דברים יא, כו",
+    "path_2": "דברים.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 48,
+    "line_index_2": 447,
+    "heRef_2": "דברים טו, ז",
+    "path_2": "דברים.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 42,
+    "line_index_2": 719,
+    "heRef_2": "דברים כז,  א",
+    "path_2": "דברים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 42,
+    "line_index_2": 726,
+    "heRef_2": "דברים כז, ח",
+    "path_2": "דברים.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 43,
+    "line_index_2": 746,
+    "heRef_2": "דברים כח,  א",
+    "path_2": "דברים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 43,
+    "line_index_2": 774,
+    "heRef_2": "דברים כח, כט",
+    "path_2": "דברים.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 44,
+    "line_index_2": 252,
+    "heRef_2": "דברים ח,  א",
+    "path_2": "דברים.txt",
+    "Conection Type": ""
+  },
+  {
+    "line_index_1": 28,
+    "line_index_2": 86,
+    "heRef_2": "אסתר רבה ו, ב",
+    "path_2": "אסתר רבה.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 14,
+    "line_index_2": 689,
+    "heRef_2": "שמות כה, ג",
+    "path_2": "שמות.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 16,
+    "line_index_2": 793,
+    "heRef_2": "שמות כח,  ו",
+    "path_2": "שמות.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 16,
+    "line_index_2": 794,
+    "heRef_2": "שמות כח,  ז",
+    "path_2": "שמות.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 19,
+    "line_index_2": 890,
+    "heRef_2": "שמות ל, יב",
+    "path_2": "שמות.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 21,
+    "line_index_2": 1033,
+    "heRef_2": "שמות לה, א",
+    "path_2": "שמות.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 58,
+    "line_index_2": 1042,
+    "heRef_2": "שמות לה, י",
+    "path_2": "שמות.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 24,
+    "line_index_2": 1158,
+    "heRef_2": "שמות לח, כא",
+    "path_2": "שמות.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 52,
+    "line_index_2": 445,
+    "heRef_2": "בראשית יח, א",
+    "path_2": "בראשית.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 5,
+    "line_index_2": 446,
+    "heRef_2": "בראשית יח, ב",
+    "path_2": "בראשית.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 39,
+    "line_index_2": 485,
+    "heRef_2": "בראשית יט, ז",
+    "path_2": "בראשית.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 53,
+    "line_index_2": 569,
+    "heRef_2": "בראשית כא, לג",
+    "path_2": "בראשית.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 70,
+    "line_index_2": 576,
+    "heRef_2": "בראשית כב, ה",
+    "path_2": "בראשית.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 45,
+    "line_index_2": 651,
+    "heRef_2": "בראשית כד, לד",
+    "path_2": "בראשית.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 7,
+    "line_index_2": 680,
+    "heRef_2": "בראשית כד,  סג",
+    "path_2": "בראשית.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 7,
+    "line_index_2": 681,
+    "heRef_2": "בראשית כד,  סד",
+    "path_2": "בראשית.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 9,
+    "line_index_2": 706,
+    "heRef_2": "בראשית כה, כא",
+    "path_2": "בראשית.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 10,
+    "line_index_2": 781,
+    "heRef_2": "בראשית כז, כה",
+    "path_2": "בראשית.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 12,
+    "line_index_2": 813,
+    "heRef_2": "בראשית כח, י",
+    "path_2": "בראשית.txt",
+    "Conection Type": "quotation"
+  },
+  {
+    "line_index_1": 57,
+    "line_index_2": 1545,
+    "heRef_2": "בראשית מט, כא",
+    "path_2": "בראשית.txt",
+    "Conection Type": "quotation"
+  }
+]
